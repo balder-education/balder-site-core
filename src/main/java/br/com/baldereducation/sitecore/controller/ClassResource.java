@@ -14,57 +14,46 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.baldereducation.sitecore.exception.WebApplicationException;
-import br.com.baldereducation.sitecore.model.domain.User;
-import br.com.baldereducation.sitecore.service.UserService;
+import br.com.baldereducation.sitecore.model.domain.Clazz;
+import br.com.baldereducation.sitecore.service.ClassService;
 
 @RestController
-@RequestMapping("/users")
-public class UserResource {
-
+@RequestMapping("/classes")
+public class ClassResource {
+	
 	@Autowired
-	private UserService userService;
-
-	@RequestMapping(method = RequestMethod.GET, value = "/{username}")
-	@ResponseStatus(HttpStatus.OK)
-	@ResponseBody
-	public User findUserByUsername(@PathVariable String username) throws WebApplicationException {
-		if (username == null)
-			throw new WebApplicationException(HttpStatus.NOT_FOUND);
-
-		return userService.findUserByUsername(username);
-	}
+	private ClassService classServeice;
 
 	@RequestMapping(method = RequestMethod.GET)
 	@ResponseStatus(HttpStatus.OK)
 	@ResponseBody
-	public List<User> list() {
-		return userService.findAll();
+	public List<Clazz> list() {
+		return classServeice.findAll();
 	}
 
 	@RequestMapping(method = RequestMethod.GET, value = "/{id}")
 	@ResponseStatus(HttpStatus.OK)
 	@ResponseBody
-	public User findById(@PathVariable Long id) {
-		return userService.findById(id);
+	public Clazz findById(@PathVariable Long id) {
+		return classServeice.findById(id);
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
 	@ResponseBody
-	public User create(@RequestBody @Valid User user) {
-		return userService.create(user);
+	public Clazz create(@RequestBody @Valid Clazz clazz) {
+		return classServeice.create(clazz);
 	}
 
 	@RequestMapping(method = RequestMethod.PUT, value = "/{id}")
 	@ResponseStatus(HttpStatus.ACCEPTED)
-	public User update(@RequestBody @Valid User user) {
-		return userService.update(user);
+	public Clazz update(@RequestBody @Valid Clazz clazz) {
+		return classServeice.update(clazz);
 	}
 
 	@RequestMapping(method = RequestMethod.DELETE, value = "/{id}")
 	@ResponseStatus(HttpStatus.ACCEPTED)
 	public void delete(@PathVariable Long id) {
-		userService.delete(id);
+		classServeice.delete(id);
 	}
 }
