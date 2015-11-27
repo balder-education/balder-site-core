@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.baldereducation.sitecore.exception.WebApplicationException;
-import br.com.baldereducation.sitecore.model.domain.User;
+import br.com.baldereducation.sitecore.model.domain.UserAccount;
 import br.com.baldereducation.sitecore.service.UserService;
 
 @RestController
@@ -28,7 +28,7 @@ public class UserResource {
 	@RequestMapping(method = RequestMethod.GET, value = "/{username}")
 	@ResponseStatus(HttpStatus.OK)
 	@ResponseBody
-	public User findUserByUsername(@PathVariable String username) throws WebApplicationException {
+	public UserAccount findUserByUsername(@PathVariable String username) throws WebApplicationException {
 		if (username == null)
 			throw new WebApplicationException(HttpStatus.NOT_FOUND);
 
@@ -38,27 +38,27 @@ public class UserResource {
 	@RequestMapping(method = RequestMethod.GET)
 	@ResponseStatus(HttpStatus.OK)
 	@ResponseBody
-	public List<User> list() {
+	public List<UserAccount> list() {
 		return userService.findAll();
 	}
 
 	@RequestMapping(method = RequestMethod.GET, value = "/{id}")
 	@ResponseStatus(HttpStatus.OK)
 	@ResponseBody
-	public User findById(@PathVariable Long id) {
+	public UserAccount findById(@PathVariable Long id) {
 		return userService.findById(id);
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
 	@ResponseBody
-	public User create(@RequestBody @Valid User user) {
+	public UserAccount create(@RequestBody @Valid UserAccount user) {
 		return userService.create(user);
 	}
 
 	@RequestMapping(method = RequestMethod.PUT, value = "/{id}")
 	@ResponseStatus(HttpStatus.ACCEPTED)
-	public User update(@RequestBody @Valid User user) {
+	public UserAccount update(@RequestBody @Valid UserAccount user) {
 		return userService.update(user);
 	}
 

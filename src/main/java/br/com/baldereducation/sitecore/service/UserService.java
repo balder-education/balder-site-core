@@ -1,7 +1,7 @@
 package br.com.baldereducation.sitecore.service;
 
-import br.com.baldereducation.sitecore.model.domain.User;
+import br.com.baldereducation.sitecore.model.domain.UserAccount;
 
-public interface UserService extends GenericService<User, Long> {
-	public User findUserByUsername(String username);
+public interface UserService extends GenericService<UserAccount, Long> {
+	public UserAccount findUserByUsername(String username);
 }

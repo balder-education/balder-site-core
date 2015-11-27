@@ -16,11 +16,11 @@ import javax.persistence.Table;
  *
  */
 @Entity
-@Table(name="class")
+@Table(name = "class")
 public class Clazz implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -41,4 +41,5 @@ public class Clazz implements Serializable {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+
 }
