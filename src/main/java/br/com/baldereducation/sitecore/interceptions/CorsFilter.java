@@ -18,24 +18,23 @@ import org.springframework.stereotype.Component;
 @Order(Ordered.HIGHEST_PRECEDENCE)
 public class CorsFilter implements Filter {
 
-    @Override
-    public void init(FilterConfig filterConfig) throws ServletException {
-    }
+	@Override
+	public void init(FilterConfig filterConfig) throws ServletException {
+	}
 
-    @Override
-    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException,
-            ServletException {
-        HttpServletResponse responseResult = (HttpServletResponse) response;
-        responseResult.setHeader("Access-Control-Allow-Origin", "*");
-        responseResult.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE");
-        responseResult.setHeader("Access-Control-Max-Age", "3600");
-        responseResult.setHeader("Access-Control-Allow-Headers", "x-requested-with");
-        chain.doFilter(request, response);
+	@Override
+	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
+			throws IOException, ServletException {
+		HttpServletResponse responseResult = (HttpServletResponse) response;
+		responseResult.setHeader("Access-Control-Allow-Origin", "*");
+		responseResult.setHeader("Access-Control-Allow-Credentials", "true");
+		responseResult.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE");
+		responseResult.setHeader("Access-Control-Max-Age", "3600");
+		responseResult.setHeader("Access-Control-Allow-Headers", "Content-Type, Accept, X-Requested-With, remember-me");
+		chain.doFilter(request, response);
+	}
 
-    }
-
-    @Override
-    public void destroy() {
-    }
-
+	@Override
+	public void destroy() {
+	}
 }

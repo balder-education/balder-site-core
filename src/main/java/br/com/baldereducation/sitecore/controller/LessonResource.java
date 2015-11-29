@@ -18,7 +18,7 @@ import br.com.baldereducation.sitecore.model.domain.Lesson;
 import br.com.baldereducation.sitecore.service.LessonService;
 
 @RestController
-@RequestMapping("/lessons")
+@RequestMapping("/app/lessons")
 public class LessonResource {
 
 	@Autowired
@@ -37,7 +37,7 @@ public class LessonResource {
 	public Lesson findById(@PathVariable Long id) {
 		return lessonService.findById(id);
 	}
-
+	
 	@RequestMapping(method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
 	@ResponseBody

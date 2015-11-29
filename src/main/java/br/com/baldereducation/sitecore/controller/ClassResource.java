@@ -18,7 +18,7 @@ import br.com.baldereducation.sitecore.model.domain.Clazz;
 import br.com.baldereducation.sitecore.service.ClassService;
 
 @RestController
-@RequestMapping("/classes")
+@RequestMapping("/app/classes")
 public class ClassResource {
 	
 	@Autowired

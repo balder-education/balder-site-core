@@ -19,13 +19,13 @@ import br.com.baldereducation.sitecore.model.domain.UserAccount;
 import br.com.baldereducation.sitecore.service.UserService;
 
 @RestController
-@RequestMapping("/users")
+@RequestMapping("/app/users")
 public class UserResource {
 
 	@Autowired
 	private UserService userService;
 
-	@RequestMapping(method = RequestMethod.GET, value = "/{username}")
+	@RequestMapping(method = RequestMethod.GET, value = "/username/{username}")
 	@ResponseStatus(HttpStatus.OK)
 	@ResponseBody
 	public UserAccount findUserByUsername(@PathVariable String username) throws WebApplicationException {
