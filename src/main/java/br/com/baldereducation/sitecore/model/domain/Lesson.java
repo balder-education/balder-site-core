@@ -2,6 +2,7 @@ package br.com.baldereducation.sitecore.model.domain;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -25,6 +26,11 @@ public class Lesson implements Serializable {
 	@JoinColumn(name = "class_id")
 	private Clazz clazz;
 
+	private String image;
+
+	@Column(name = "result_word")
+	private String resultWord;
+
 	public Long getId() {
 		return id;
 	}
@@ -47,6 +53,22 @@ public class Lesson implements Serializable {
 
 	public void setClazz(Clazz clazz) {
 		this.clazz = clazz;
+	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+
+	public String getResultWord() {
+		return resultWord;
+	}
+
+	public void setResultWord(String resultWord) {
+		this.resultWord = resultWord;
 	}
 
 }

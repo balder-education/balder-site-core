@@ -25,6 +25,7 @@ public class Clazz implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String description;
+	private String image;
 
 	public Long getId() {
 		return id;
@@ -42,4 +43,13 @@ public class Clazz implements Serializable {
 		this.description = description;
 	}
 
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+	
+	
 }
