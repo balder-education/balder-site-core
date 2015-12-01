@@ -1,5 +1,6 @@
 package br.com.baldereducation.sitecore.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,18 +48,24 @@ public class LessonServiceImpl implements LessonService {
 	}
 
 	@Override
-	public LessonTO findByClazzId(Long id) {
-		LessonTO lessonTO = new LessonTO();
-		List<LessonWord> lessonWords = lessonWordRepository.findByLesson(id);
+	public List<LessonTO> findByClazz(Long id) {
+		List<LessonTO> lessonsTO = new ArrayList<>();
+		LessonTO lessonTO = null;
 
-		if (lessonWords != null)
-			lessonTO.setLessonWords(lessonWords);
+		List<Lesson> lessons = lessonRepository.findByClazzId(id);
+		for (Lesson lesson : lessons) {
+			lessonTO = new LessonTO();
+			if (lesson != null)
+				lessonTO.setLesson(lesson);
 
-		Lesson lesson = findById(id);
-		if (lesson != null)
-			lessonTO.setLesson(lesson);
-		
-		return lessonTO;
+			List<LessonWord> lessonWords = lessonWordRepository.findByLessonId(id);
+			if (lessonWords != null)
+				lessonTO.setLessonWords(lessonWords);
+
+			lessonsTO.add(lessonTO);
+		}
+
+		return lessonsTO;
 	}
 
 }
