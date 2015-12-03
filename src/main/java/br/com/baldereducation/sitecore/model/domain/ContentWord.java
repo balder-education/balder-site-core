@@ -2,6 +2,7 @@ package br.com.baldereducation.sitecore.model.domain;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,21 +12,20 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "lesson")
-public class Lesson implements Serializable {
-
+@Table(name = "content_word")
+public class ContentWord implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private String description;
 
 	@ManyToOne
-	@JoinColumn(name = "class_id")
-	private Clazz clazz;
+	@JoinColumn(name = "content_id")
+	private Content content;
 
-	private String image;
+	@Column(name = "word")
+	private String word;
 
 	public Long getId() {
 		return id;
@@ -35,28 +35,20 @@ public class Lesson implements Serializable {
 		this.id = id;
 	}
 
-	public String getDescription() {
-		return description;
+	public Content getContent() {
+		return content;
 	}
 
-	public void setDescription(String description) {
-		this.description = description;
+	public void setContent(Content content) {
+		this.content = content;
 	}
 
-	public Clazz getClazz() {
-		return clazz;
+	public String getWord() {
+		return word;
 	}
 
-	public void setClazz(Clazz clazz) {
-		this.clazz = clazz;
-	}
-
-	public String getImage() {
-		return image;
-	}
-
-	public void setImage(String image) {
-		this.image = image;
+	public void setWord(String word) {
+		this.word = word;
 	}
 
 }

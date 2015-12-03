@@ -1,16 +1,13 @@
 package br.com.baldereducation.sitecore.service.impl;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.com.baldereducation.sitecore.model.domain.Lesson;
-import br.com.baldereducation.sitecore.model.domain.LessonWord;
-import br.com.baldereducation.sitecore.model.domain.to.LessonTO;
 import br.com.baldereducation.sitecore.repository.LessonRepository;
-import br.com.baldereducation.sitecore.repository.LessonWordRepository;
+import br.com.baldereducation.sitecore.repository.ContentWordRepository;
 import br.com.baldereducation.sitecore.service.LessonService;
 
 @Service
@@ -20,7 +17,7 @@ public class LessonServiceImpl implements LessonService {
 	private LessonRepository lessonRepository;
 
 	@Autowired
-	private LessonWordRepository lessonWordRepository;
+	private ContentWordRepository lessonWordRepository;
 
 	@Override
 	public List<Lesson> findAll() {
@@ -47,8 +44,8 @@ public class LessonServiceImpl implements LessonService {
 		return lessonRepository.findOne(id);
 	}
 
-	@Override
-	public List<LessonTO> findByClazz(Long id) {
+	//@Override
+	/*public List<LessonTO> findByClazz(Long id) {
 		List<LessonTO> lessonsTO = new ArrayList<>();
 		LessonTO lessonTO = null;
 
@@ -66,6 +63,6 @@ public class LessonServiceImpl implements LessonService {
 		}
 
 		return lessonsTO;
-	}
+	}*/
 
 }

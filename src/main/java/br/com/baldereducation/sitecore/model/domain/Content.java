@@ -12,20 +12,24 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "lesson_word")
-public class LessonWord implements Serializable {
+@Table(name = "content")
+public class Content implements Serializable {
+
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	private String description;
 
 	@ManyToOne
-	@JoinColumn(name = "lesson_id")
+	@JoinColumn(name = "class_id")
 	private Lesson lesson;
 
-	@Column(name = "word")
-	private String word;
+	private String image;
+
+	@Column(name = "result_word")
+	private String resultWord;
 
 	public Long getId() {
 		return id;
@@ -33,6 +37,14 @@ public class LessonWord implements Serializable {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	public Lesson getLesson() {
@@ -43,12 +55,20 @@ public class LessonWord implements Serializable {
 		this.lesson = lesson;
 	}
 
-	public String getWord() {
-		return word;
+	public String getImage() {
+		return image;
 	}
 
-	public void setWord(String word) {
-		this.word = word;
+	public void setImage(String image) {
+		this.image = image;
+	}
+
+	public String getResultWord() {
+		return resultWord;
+	}
+
+	public void setResultWord(String resultWord) {
+		this.resultWord = resultWord;
 	}
 
 }

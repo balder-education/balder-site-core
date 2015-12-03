@@ -14,54 +14,47 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.baldereducation.sitecore.model.domain.Lesson;
-import br.com.baldereducation.sitecore.service.LessonService;
+import br.com.baldereducation.sitecore.model.domain.ContentWord;
+import br.com.baldereducation.sitecore.service.ContentWordService;
 
 @RestController
-@RequestMapping("/app/lessons")
-public class LessonResource {
+@RequestMapping("/app/contentWords")
+public class ContentWordResource {
 
 	@Autowired
-	private LessonService lessonService;
+	private ContentWordService contentWordService;
 	
 	@RequestMapping(method = RequestMethod.GET)
 	@ResponseStatus(HttpStatus.OK)
 	@ResponseBody
-	public List<Lesson> list() {
-		return lessonService.findAll();
+	public List<ContentWord> list() {
+		return contentWordService.findAll();
 	}
 
 	@RequestMapping(method = RequestMethod.GET, value = "/{id}")
 	@ResponseStatus(HttpStatus.OK)
 	@ResponseBody
-	public Lesson findById(@PathVariable Long id) {
-		return lessonService.findById(id);
+	public ContentWord findById(@PathVariable Long id) {
+		return contentWordService.findById(id);
 	}
-	
-	/*@RequestMapping(method = RequestMethod.GET, value = "/clazz/{clazzId}")
-	@ResponseStatus(HttpStatus.OK)
-	@ResponseBody
-	public List<LessonTO> findByClazz(@PathVariable Long clazzId) {
-		return lessonService.findByClazz(clazzId);
-	}*/
 	
 	
 	@RequestMapping(method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
 	@ResponseBody
-	public Lesson create(@RequestBody @Valid Lesson user) {
-		return lessonService.create(user);
+	public ContentWord create(@RequestBody @Valid ContentWord contentWord) {
+		return contentWordService.create(contentWord);
 	}
 
 	@RequestMapping(method = RequestMethod.PUT, value = "/{id}")
 	@ResponseStatus(HttpStatus.ACCEPTED)
-	public Lesson update(@RequestBody @Valid Lesson user) {
-		return lessonService.update(user);
+	public ContentWord update(@RequestBody @Valid ContentWord contentWord) {
+		return contentWordService.update(contentWord);
 	}
 
 	@RequestMapping(method = RequestMethod.DELETE, value = "/{id}")
 	@ResponseStatus(HttpStatus.ACCEPTED)
 	public void delete(@PathVariable Long id) {
-		lessonService.delete(id);
+		contentWordService.delete(id);
 	}
 }
