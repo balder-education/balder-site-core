@@ -26,18 +26,34 @@ insert into lesson (id, description, result_word, class_id, image) values (3, 'l
 insert into lesson (id, description, result_word, class_id, image) values (4, 'lesson4', 'banana', 4, 'http://static.hsw.com.br/gif/how-to-draw-construction-vehicles-57.jpg');
 insert into lesson (id, description, result_word, class_id, image) values (5, 'lesson5', 'banana', 5, 'http://static.hsw.com.br/gif/how-to-draw-construction-vehicles-57.jpg');
 
-create table lesson_word (
+create table content (
 	id bigint NOT NULL AUTO_INCREMENT,
-	word varchar(255),
+	description varchar(255),
+	result_word varchar(255),
 	lesson_id bigint not null,
+	image varchar(255),
 	primary key (id)
 );
 
-insert into lesson_word (id, word, lesson_id) values (1, 'a', 1);
-insert into lesson_word (id, word, lesson_id) values (2, 'e', 1);
-insert into lesson_word (id, word, lesson_id) values (3, 'i', 1);
-insert into lesson_word (id, word, lesson_id) values (4, 'o', 1);
-insert into lesson_word (id, word, lesson_id) values (5, 'u', 1);
+insert into content (id, description, result_word, lesson_id, image) values (1, 'content1', 'banana', 1, 'http://static.hsw.com.br/gif/how-to-draw-construction-vehicles-57.jpg');
+insert into content (id, description, result_word, lesson_id, image) values (2, 'content2', 'banana', 2, 'http://static.hsw.com.br/gif/how-to-draw-construction-vehicles-57.jpg');
+insert into content (id, description, result_word, lesson_id, image) values (3, 'content3', 'banana', 3, 'http://static.hsw.com.br/gif/how-to-draw-construction-vehicles-57.jpg');
+insert into content (id, description, result_word, lesson_id, image) values (4, 'content4', 'banana', 4, 'http://static.hsw.com.br/gif/how-to-draw-construction-vehicles-57.jpg');
+insert into content (id, description, result_word, lesson_id, image) values (5, 'content5', 'banana', 5, 'http://static.hsw.com.br/gif/how-to-draw-construction-vehicles-57.jpg');
+
+
+create table content_word (
+	id bigint NOT NULL AUTO_INCREMENT,
+	word varchar(255),
+	content_id bigint not null,
+	primary key (id)
+);
+
+insert into lesson_word (id, word, content_id) values (1, 'a', 1);
+insert into lesson_word (id, word, content_id) values (2, 'e', 1);
+insert into lesson_word (id, word, content_id) values (3, 'i', 1);
+insert into lesson_word (id, word, content_id) values (4, 'o', 1);
+insert into lesson_word (id, word, content_id) values (5, 'u', 1);
 
 insert into lesson_word (id, word, lesson_id) values (6, 'ba', 1);
 insert into lesson_word (id, word, lesson_id) values (7, 'be', 1);

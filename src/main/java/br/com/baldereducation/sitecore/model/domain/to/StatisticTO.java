@@ -2,9 +2,6 @@ package br.com.baldereducation.sitecore.model.domain.to;
 
 public class StatisticTO {
 	
-	@SuppressWarnings("unused")
-	private static final String URL_CLIENT = "api/statistics";
-
 	private int studentCode;
 	private int contentLevel;
 	private int contentId;

@@ -9,7 +9,7 @@ public class ContentTO {
 	private String description;
 	private String tipoConteudo;
 	private String tipoLevel;
-	private String curso;
+	private int curso;
 
 	public Long getId() {
 		return id;
@@ -43,11 +43,11 @@ public class ContentTO {
 		this.tipoLevel = tipoLevel;
 	}
 
-	public String getCurso() {
+	public int getCurso() {
 		return curso;
 	}
 
-	public void setCurso(String curso) {
+	public void setCurso(int curso) {
 		this.curso = curso;
 	}
 

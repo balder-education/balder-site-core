@@ -23,13 +23,22 @@ public class Content implements Serializable {
 	private String description;
 
 	@ManyToOne
-	@JoinColumn(name = "class_id")
+	@JoinColumn(name = "lesson_id")
 	private Lesson lesson;
 
 	private String image;
 
 	@Column(name = "result_word")
 	private String resultWord;
+	
+	public Content(Long id, String description, Lesson lesson, String image, String resultWord) {
+		super();
+		this.id = id;
+		this.description = description;
+		this.lesson = lesson;
+		this.image = image;
+		this.resultWord = resultWord;
+	}
 
 	public Long getId() {
 		return id;
