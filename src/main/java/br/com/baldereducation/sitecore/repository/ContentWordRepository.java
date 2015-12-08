@@ -7,5 +7,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import br.com.baldereducation.sitecore.model.domain.ContentWord;
 
 public interface ContentWordRepository extends JpaRepository<ContentWord, Long> {
-	public List<ContentWord> findByLessonId(Long id);
+	public List<ContentWord> findByContentId(Long id);
 }

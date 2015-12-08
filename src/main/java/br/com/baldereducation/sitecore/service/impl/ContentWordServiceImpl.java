@@ -39,4 +39,9 @@ public class ContentWordServiceImpl implements ContentWordService {
 	public ContentWord findById(Long id) {
 		return contentWordRepository.findOne(id);
 	}
+
+	@Override
+	public List<ContentWord> findByContent(Long contenId) {
+		return contentWordRepository.findByContentId(contenId);
+	}
 }

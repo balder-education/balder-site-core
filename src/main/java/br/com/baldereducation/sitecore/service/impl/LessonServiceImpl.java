@@ -44,6 +44,11 @@ public class LessonServiceImpl implements LessonService {
 		return lessonRepository.findOne(id);
 	}
 
+	@Override
+	public List<Lesson> findByClazz(Long clazzId) {
+		return lessonRepository.findByClazzId(clazzId);
+	}
+
 	//@Override
 	/*public List<LessonTO> findByClazz(Long id) {
 		List<LessonTO> lessonsTO = new ArrayList<>();

@@ -22,46 +22,45 @@ import br.com.baldereducation.sitecore.service.ContentService;
 public class ContentResource {
 
 	@Autowired
-	private ContentService ContentService;
+	private ContentService contentService;
 	
 	@RequestMapping(method = RequestMethod.GET)
 	@ResponseStatus(HttpStatus.OK)
 	@ResponseBody
 	public List<Content> list() {
-		return ContentService.findAll();
+		return contentService.findAll();
 	}
 
 	@RequestMapping(method = RequestMethod.GET, value = "/{id}")
 	@ResponseStatus(HttpStatus.OK)
 	@ResponseBody
 	public Content findById(@PathVariable Long id) {
-		return ContentService.findById(id);
+		return contentService.findById(id);
 	}
 	
-	/*@RequestMapping(method = RequestMethod.GET, value = "/clazz/{clazzId}")
+	@RequestMapping(method = RequestMethod.GET, value = "/lesson/{lessonId}")
 	@ResponseStatus(HttpStatus.OK)
 	@ResponseBody
-	public List<ContentTO> findByClazz(@PathVariable Long clazzId) {
-		return ContentService.findByClazz(clazzId);
-	}*/
-	
+	public List<Content> findByLesson(@PathVariable Long lessonId) {
+		return contentService.findByLesson(lessonId);
+	}
 	
 	@RequestMapping(method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
 	@ResponseBody
 	public Content create(@RequestBody @Valid Content content) {
-		return ContentService.create(content);
+		return contentService.create(content);
 	}
 
 	@RequestMapping(method = RequestMethod.PUT, value = "/{id}")
 	@ResponseStatus(HttpStatus.ACCEPTED)
 	public Content update(@RequestBody @Valid Content content) {
-		return ContentService.update(content);
+		return contentService.update(content);
 	}
 
 	@RequestMapping(method = RequestMethod.DELETE, value = "/{id}")
 	@ResponseStatus(HttpStatus.ACCEPTED)
 	public void delete(@PathVariable Long id) {
-		ContentService.delete(id);
+		contentService.delete(id);
 	}
 }

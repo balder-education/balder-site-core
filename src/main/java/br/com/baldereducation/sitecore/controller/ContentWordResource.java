@@ -38,6 +38,12 @@ public class ContentWordResource {
 		return contentWordService.findById(id);
 	}
 	
+	@RequestMapping(method = RequestMethod.GET, value = "/content/{contentId}")
+	@ResponseStatus(HttpStatus.OK)
+	@ResponseBody
+	public List<ContentWord> findByLesson(@PathVariable Long contentId) {
+		return contentWordService.findByContent(contentId);
+	}
 	
 	@RequestMapping(method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)

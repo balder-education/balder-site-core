@@ -38,13 +38,12 @@ public class LessonResource {
 		return lessonService.findById(id);
 	}
 	
-	/*@RequestMapping(method = RequestMethod.GET, value = "/clazz/{clazzId}")
+	@RequestMapping(method = RequestMethod.GET, value = "/clazz/{clazzId}")
 	@ResponseStatus(HttpStatus.OK)
 	@ResponseBody
-	public List<LessonTO> findByClazz(@PathVariable Long clazzId) {
+	public List<Lesson> findByClazz(@PathVariable Long clazzId) {
 		return lessonService.findByClazz(clazzId);
-	}*/
-	
+	}
 	
 	@RequestMapping(method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)

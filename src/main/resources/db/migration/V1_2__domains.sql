@@ -49,21 +49,21 @@ create table content_word (
 	primary key (id)
 );
 
-insert into lesson_word (id, word, content_id) values (1, 'a', 1);
-insert into lesson_word (id, word, content_id) values (2, 'e', 1);
-insert into lesson_word (id, word, content_id) values (3, 'i', 1);
-insert into lesson_word (id, word, content_id) values (4, 'o', 1);
-insert into lesson_word (id, word, content_id) values (5, 'u', 1);
+insert into content_word (id, word, content_id) values (1, 'a', 1);
+insert into content_word (id, word, content_id) values (2, 'e', 1);
+insert into content_word (id, word, content_id) values (3, 'i', 1);
+insert into content_word (id, word, content_id) values (4, 'o', 1);
+insert into content_word (id, word, content_id) values (5, 'u', 1);
 
-insert into lesson_word (id, word, lesson_id) values (6, 'ba', 1);
-insert into lesson_word (id, word, lesson_id) values (7, 'be', 1);
-insert into lesson_word (id, word, lesson_id) values (8, 'bi', 1);
-insert into lesson_word (id, word, lesson_id) values (9, 'bo', 1);
-insert into lesson_word (id, word, lesson_id) values (10, 'bu', 1);
+insert into content_word (id, word, content_id) values (6, 'ba', 1);
+insert into content_word (id, word, content_id) values (7, 'be', 1);
+insert into content_word (id, word, content_id) values (8, 'bi', 1);
+insert into content_word (id, word, content_id) values (9, 'bo', 1);
+insert into content_word (id, word, content_id) values (10, 'bu', 1);
 
-insert into lesson_word (id, word, lesson_id) values (11, 'na', 1);
-insert into lesson_word (id, word, lesson_id) values (12, 'ne', 1);
-insert into lesson_word (id, word, lesson_id) values (13, 'ni', 1);
-insert into lesson_word (id, word, lesson_id) values (14, 'no', 1);
-insert into lesson_word (id, word, lesson_id) values (15, 'nu', 1);
+insert into content_word (id, word, content_id) values (11, 'na', 1);
+insert into content_word (id, word, content_id) values (12, 'ne', 1);
+insert into content_word (id, word, content_id) values (13, 'ni', 1);
+insert into content_word (id, word, content_id) values (14, 'no', 1);
+insert into content_word (id, word, content_id) values (15, 'nu', 1);
 

@@ -43,4 +43,9 @@ public class ContentServiceImpl implements ContentService {
 	public Content findById(Long id) {
 		return contentRepository.findOne(id);
 	}
+
+	@Override
+	public List<Content> findByLesson(Long lessonId) {
+		return contentRepository.findByLessonId(lessonId);
+	}
 }

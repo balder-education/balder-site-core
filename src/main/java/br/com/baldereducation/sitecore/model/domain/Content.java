@@ -30,8 +30,13 @@ public class Content implements Serializable {
 
 	@Column(name = "result_word")
 	private String resultWord;
-	
-	public Content(Long id, String description, Lesson lesson, String image, String resultWord) {
+
+	public Content() {
+		super();
+	}
+
+	public Content(Long id, String description, Lesson lesson, String image,
+			String resultWord) {
 		super();
 		this.id = id;
 		this.description = description;
