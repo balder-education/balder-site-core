@@ -1,10 +1,10 @@
 package br.com.baldereducation.sitecore.model.controls;
 
 public enum Menu {
-	MENU_DASHBOARD("/#/", "Dashboard", "dashboard", true), 
-	MENU_LESSON("/#/lesson", "Lesson", "group", true), 
-	MENU_CLASS("/#/class",
-			"Classes", "message", true);
+	MENU_DASHBOARD("/#/", "Dashboard", "dashboard", true), MENU_CLASS(
+			"/#/class", "Classes", "message", true), MENU_LESSON("/#/lesson",
+			"Lesson", "group", true),  MENU_CONTENT("/#/content",
+					"Content", "group", true);
 
 	private String link = null;
 	private String title = null;

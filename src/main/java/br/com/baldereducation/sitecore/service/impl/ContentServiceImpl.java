@@ -54,6 +54,7 @@ public class ContentServiceImpl implements ContentService {
 			contentTO.setDescription(content.getDescription());
 			contentTO.setLessonId(content.getLesson().getId());
 			contentTO.setImage(content.getImage());
+			contentTO.setResultWord(content.getResultWord());
 			
 			contentsTO.add(contentTO);
 		}
