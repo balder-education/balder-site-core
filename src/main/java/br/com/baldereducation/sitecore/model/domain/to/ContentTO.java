@@ -2,14 +2,24 @@ package br.com.baldereducation.sitecore.model.domain.to;
 
 public class ContentTO {
 
-	@SuppressWarnings("unused")
-	private static final String URL_CLIENT = "api/contents";
-
 	private Long id;
 	private String description;
-	private String tipoConteudo;
-	private String tipoLevel;
-	private int curso;
+	private Long lessonId;
+	private String image;
+	private String resultWord;
+
+	public ContentTO() {
+		super();
+	}
+
+	public ContentTO(Long id, String description, Long lessonId, String image, String resultWord) {
+		super();
+		this.id = id;
+		this.description = description;
+		this.lessonId = lessonId;
+		this.image = image;
+		this.resultWord = resultWord;
+	}
 
 	public Long getId() {
 		return id;
@@ -27,28 +37,28 @@ public class ContentTO {
 		this.description = description;
 	}
 
-	public String getTipoConteudo() {
-		return tipoConteudo;
+	public Long getLessonId() {
+		return lessonId;
 	}
 
-	public void setTipoConteudo(String tipoConteudo) {
-		this.tipoConteudo = tipoConteudo;
+	public void setLessonId(Long lessonId) {
+		this.lessonId = lessonId;
 	}
 
-	public String getTipoLevel() {
-		return tipoLevel;
+	public String getImage() {
+		return image;
 	}
 
-	public void setTipoLevel(String tipoLevel) {
-		this.tipoLevel = tipoLevel;
+	public void setImage(String image) {
+		this.image = image;
 	}
 
-	public int getCurso() {
-		return curso;
+	public String getResultWord() {
+		return resultWord;
 	}
 
-	public void setCurso(int curso) {
-		this.curso = curso;
+	public void setResultWord(String resultWord) {
+		this.resultWord = resultWord;
 	}
 
 }

@@ -1,13 +1,14 @@
 package br.com.baldereducation.sitecore.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.com.baldereducation.sitecore.model.domain.Lesson;
+import br.com.baldereducation.sitecore.model.domain.to.LessonTO;
 import br.com.baldereducation.sitecore.repository.LessonRepository;
-import br.com.baldereducation.sitecore.repository.ContentWordRepository;
 import br.com.baldereducation.sitecore.service.LessonService;
 
 @Service
@@ -15,9 +16,6 @@ public class LessonServiceImpl implements LessonService {
 
 	@Autowired
 	private LessonRepository lessonRepository;
-
-	@Autowired
-	private ContentWordRepository lessonWordRepository;
 
 	@Override
 	public List<Lesson> findAll() {
@@ -45,29 +43,21 @@ public class LessonServiceImpl implements LessonService {
 	}
 
 	@Override
-	public List<Lesson> findByClazz(Long clazzId) {
-		return lessonRepository.findByClazzId(clazzId);
-	}
-
-	//@Override
-	/*public List<LessonTO> findByClazz(Long id) {
+	public List<LessonTO> findByClazz(Long clazzId) {
+		List<Lesson> lessons = lessonRepository.findByClazzId(clazzId);
 		List<LessonTO> lessonsTO = new ArrayList<>();
-		LessonTO lessonTO = null;
 
-		List<Lesson> lessons = lessonRepository.findByClazzId(id);
+		LessonTO lessonTO = null;
 		for (Lesson lesson : lessons) {
 			lessonTO = new LessonTO();
-			if (lesson != null)
-				lessonTO.setLesson(lesson);
-
-			List<LessonWord> lessonWords = lessonWordRepository.findByLessonId(id);
-			if (lessonWords != null)
-				lessonTO.setLessonWords(lessonWords);
-
+			lessonTO.setId(lesson.getId());
+			lessonTO.setDescription(lesson.getDescription());
+			lessonTO.setClassId(lesson.getClazz().getId());
+			lessonTO.setImage(lesson.getImage());
+			
 			lessonsTO.add(lessonTO);
 		}
 
 		return lessonsTO;
-	}*/
-
+	}
 }

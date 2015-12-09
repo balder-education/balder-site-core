@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.baldereducation.sitecore.model.domain.ContentWord;
+import br.com.baldereducation.sitecore.model.domain.to.ContentWordTO;
 import br.com.baldereducation.sitecore.service.ContentWordService;
 
 @RestController
@@ -41,7 +42,7 @@ public class ContentWordResource {
 	@RequestMapping(method = RequestMethod.GET, value = "/content/{contentId}")
 	@ResponseStatus(HttpStatus.OK)
 	@ResponseBody
-	public List<ContentWord> findByLesson(@PathVariable Long contentId) {
+	public List<ContentWordTO> findByLesson(@PathVariable Long contentId) {
 		return contentWordService.findByContent(contentId);
 	}
 	
