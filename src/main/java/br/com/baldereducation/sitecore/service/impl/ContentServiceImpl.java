@@ -1,6 +1,5 @@
 package br.com.baldereducation.sitecore.service.impl;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,22 +42,29 @@ public class ContentServiceImpl implements ContentService {
 	}
 
 	@Override
-	public List<ContentTO> findByLesson(Long lessonId) {
-		List<Content> contents = contentRepository.findByLessonId(lessonId);
-		List<ContentTO> contentsTO = new ArrayList<>();
-
+	public ContentTO findByLesson(Long lessonId) {
+		Content content = contentRepository.findByLessonId(lessonId);
+		
 		ContentTO contentTO = null;
-		for (Content content : contents) {
 			contentTO = new ContentTO();
 			contentTO.setId(content.getId());
 			contentTO.setDescription(content.getDescription());
 			contentTO.setLessonId(content.getLesson().getId());
 			contentTO.setImage(content.getImage());
 			contentTO.setResultWord(content.getResultWord());
-			
-			contentsTO.add(contentTO);
+			contentTO.setFinished(content.isFinished());
+	
+		return contentTO;
+	}
+
+	@Override
+	public void finished(Long contentId, int status) {
+		Content content = contentRepository.findOne(contentId);
+
+		if (status == 1) {
+			content.setFinished(true);
+			contentRepository.save(content);
 		}
 
-		return contentsTO;
 	}
 }

@@ -6,18 +6,21 @@ public class ContentTO {
 	private String description;
 	private Long lessonId;
 	private String image;
+	private boolean finished;
 	private String resultWord;
 
 	public ContentTO() {
 		super();
 	}
 
-	public ContentTO(Long id, String description, Long lessonId, String image, String resultWord) {
+	public ContentTO(Long id, String description, Long lessonId, String image,
+			boolean finished, String resultWord) {
 		super();
 		this.id = id;
 		this.description = description;
 		this.lessonId = lessonId;
 		this.image = image;
+		this.finished = finished;
 		this.resultWord = resultWord;
 	}
 
@@ -59,6 +62,14 @@ public class ContentTO {
 
 	public void setResultWord(String resultWord) {
 		this.resultWord = resultWord;
+	}
+
+	public boolean isFinished() {
+		return finished;
+	}
+
+	public void setFinished(boolean finished) {
+		this.finished = finished;
 	}
 
 }

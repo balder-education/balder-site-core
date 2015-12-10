@@ -32,6 +32,7 @@ create table content (
 	result_word varchar(255),
 	lesson_id bigint not null,
 	image varchar(255),
+	finished bit default 0 not null,
 	primary key (id)
 );
 

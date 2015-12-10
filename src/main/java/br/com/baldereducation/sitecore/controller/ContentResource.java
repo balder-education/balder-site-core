@@ -42,10 +42,9 @@ public class ContentResource {
 	@RequestMapping(method = RequestMethod.GET, value = "/lesson/{lessonId}")
 	@ResponseStatus(HttpStatus.OK)
 	@ResponseBody
-	public List<ContentTO> findByLesson(@PathVariable Long lessonId) {
+	public ContentTO findByLesson(@PathVariable Long lessonId) {
 		return contentService.findByLesson(lessonId);
-	}
-	
+	}	
 	@RequestMapping(method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
 	@ResponseBody
@@ -57,6 +56,12 @@ public class ContentResource {
 	@ResponseStatus(HttpStatus.ACCEPTED)
 	public Content update(@RequestBody @Valid Content content) {
 		return contentService.update(content);
+	}
+	
+	@RequestMapping(method = RequestMethod.PUT, value = "/{contentId}/status/{status}")
+	@ResponseStatus(HttpStatus.ACCEPTED)
+	public void finished(@PathVariable("contentId") Long contentId, @PathVariable("status") int status) {
+		contentService.finished(contentId, status);
 	}
 
 	@RequestMapping(method = RequestMethod.DELETE, value = "/{id}")

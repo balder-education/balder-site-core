@@ -31,6 +31,8 @@ public class Content implements Serializable {
 	@Column(name = "result_word")
 	private String resultWord;
 
+	private boolean finished;
+
 	public Content() {
 		super();
 	}
@@ -83,6 +85,14 @@ public class Content implements Serializable {
 
 	public void setResultWord(String resultWord) {
 		this.resultWord = resultWord;
+	}
+
+	public boolean isFinished() {
+		return finished;
+	}
+
+	public void setFinished(boolean finished) {
+		this.finished = finished;
 	}
 
 }
