@@ -1,4 +1,4 @@
-package br.com.baldereducation.sitecore.controller;
+ package br.com.baldereducation.sitecore.controller;
 
 import java.util.List;
 
@@ -42,7 +42,7 @@ public class ContentResource {
 	@RequestMapping(method = RequestMethod.GET, value = "/lesson/{lessonId}")
 	@ResponseStatus(HttpStatus.OK)
 	@ResponseBody
-	public ContentTO findByLesson(@PathVariable Long lessonId) {
+	public List<ContentTO> findByLesson(@PathVariable Long lessonId) {
 		return contentService.findByLesson(lessonId);
 	}	
 	@RequestMapping(method = RequestMethod.POST)

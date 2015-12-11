@@ -17,6 +17,7 @@ create table lesson (
 	result_word varchar(255),
 	class_id bigint not null,
 	image varchar(255),
+	finished bit default 0 not null,
 	primary key (id)
 );
 

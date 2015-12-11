@@ -27,6 +27,8 @@ public class Lesson implements Serializable {
 
 	private String image;
 
+	private boolean finished;
+
 	public Long getId() {
 		return id;
 	}
@@ -57,6 +59,14 @@ public class Lesson implements Serializable {
 
 	public void setImage(String image) {
 		this.image = image;
+	}
+
+	public boolean isFinished() {
+		return finished;
+	}
+
+	public void setFinished(boolean finished) {
+		this.finished = finished;
 	}
 
 }

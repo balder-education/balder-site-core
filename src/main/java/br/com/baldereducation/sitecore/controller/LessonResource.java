@@ -39,6 +39,13 @@ public class LessonResource {
 		return lessonService.findById(id);
 	}
 	
+	@RequestMapping(method = RequestMethod.GET, value = "/count")
+	@ResponseStatus(HttpStatus.OK)
+	@ResponseBody
+	public void count() {
+		 lessonService.count();
+	}
+	
 	@RequestMapping(method = RequestMethod.GET, value = "/clazz/{clazzId}")
 	@ResponseStatus(HttpStatus.OK)
 	@ResponseBody

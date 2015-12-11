@@ -6,8 +6,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import br.com.baldereducation.sitecore.model.domain.Content;
 import br.com.baldereducation.sitecore.model.domain.Lesson;
 import br.com.baldereducation.sitecore.model.domain.to.LessonTO;
+import br.com.baldereducation.sitecore.repository.ContentRepository;
 import br.com.baldereducation.sitecore.repository.LessonRepository;
 import br.com.baldereducation.sitecore.service.LessonService;
 
@@ -16,6 +18,9 @@ public class LessonServiceImpl implements LessonService {
 
 	@Autowired
 	private LessonRepository lessonRepository;
+	
+	@Autowired
+	private ContentRepository contentRepository;
 
 	@Override
 	public List<Lesson> findAll() {
@@ -54,10 +59,32 @@ public class LessonServiceImpl implements LessonService {
 			lessonTO.setDescription(lesson.getDescription());
 			lessonTO.setClassId(lesson.getClazz().getId());
 			lessonTO.setImage(lesson.getImage());
-			
+			lessonTO.setFinished(lesson.isFinished());
 			lessonsTO.add(lessonTO);
 		}
 
 		return lessonsTO;
+	}
+	
+	@Override
+	public Long count() {
+		return contentRepository.count();
+	}
+
+	@Override
+	public boolean finishedLesson(Long lessonId) {
+		boolean closed = false;
+		
+		int returnCount = contentRepository.findContentByLessonId(lessonId);
+		List<Content> contents = contentRepository.findByFinishedAndLessonId(true, lessonId);
+		
+		if (contents.size() == returnCount) {
+			Lesson lesson = lessonRepository.findOne(lessonId);
+			lesson.setFinished(true);
+			lessonRepository.save(lesson);
+			closed = true;
+		}
+		
+		return closed;
 	}
 }

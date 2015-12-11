@@ -5,17 +5,20 @@ public class LessonTO {
 	private String description;
 	private Long classId;
 	private String image;
+	private boolean finished;
 
 	public LessonTO() {
 		super();
 	}
 
-	public LessonTO(Long id, String description, Long classId, String image) {
+	public LessonTO(Long id, String description, Long classId, String image,
+			boolean finished) {
 		super();
 		this.id = id;
 		this.description = description;
 		this.classId = classId;
 		this.image = image;
+		this.finished = finished;
 	}
 
 	public Long getId() {
@@ -48,6 +51,14 @@ public class LessonTO {
 
 	public void setImage(String image) {
 		this.image = image;
+	}
+
+	public boolean isFinished() {
+		return finished;
+	}
+
+	public void setFinished(boolean finished) {
+		this.finished = finished;
 	}
 
 }
