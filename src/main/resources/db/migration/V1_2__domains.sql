@@ -5,11 +5,8 @@ create table class (
 	primary key (id)
 );
 
-insert into class (id, description, image) values (1, 'class1', 'https://image.freepik.com/vetores-gratis/fazenda-fundo-colorido-dos-desenhos-animados_270-161129.jpg');
-insert into class (id, description, image) values (2, 'class2', 'https://image.freepik.com/vetores-gratis/fazenda-fundo-colorido-dos-desenhos-animados_270-161129.jpg');
-insert into class (id, description, image) values (3, 'class3', 'https://image.freepik.com/vetores-gratis/fazenda-fundo-colorido-dos-desenhos-animados_270-161129.jpg');
-insert into class (id, description, image) values (4, 'class4', 'https://image.freepik.com/vetores-gratis/fazenda-fundo-colorido-dos-desenhos-animados_270-161129.jpg');
-insert into class (id, description, image) values (5, 'class5', 'https://image.freepik.com/vetores-gratis/fazenda-fundo-colorido-dos-desenhos-animados_270-161129.jpg');
+insert into class (id, description, image) values (1, 'class1', 'http://i.dailymail.co.uk/i/pix/2013/07/03/article-2355212-1AA67955000005DC-841_634x424.jpg');
+insert into class (id, description, image) values (2, 'class2', 'http://i.dailymail.co.uk/i/pix/2013/09/10/article-2416686-1BBBF474000005DC-565_634x384.jpg');
 
 create table lesson (
 	id bigint NOT NULL AUTO_INCREMENT,
@@ -21,11 +18,7 @@ create table lesson (
 	primary key (id)
 );
 
-insert into lesson (id, description, result_word, class_id, image) values (1, 'lesson1', 'banana', 1, 'http://static.hsw.com.br/gif/how-to-draw-construction-vehicles-57.jpg');
-insert into lesson (id, description, result_word, class_id, image) values (2, 'lesson2', 'banana', 2, 'http://static.hsw.com.br/gif/how-to-draw-construction-vehicles-57.jpg');
-insert into lesson (id, description, result_word, class_id, image) values (3, 'lesson3', 'banana', 3, 'http://static.hsw.com.br/gif/how-to-draw-construction-vehicles-57.jpg');
-insert into lesson (id, description, result_word, class_id, image) values (4, 'lesson4', 'banana', 4, 'http://static.hsw.com.br/gif/how-to-draw-construction-vehicles-57.jpg');
-insert into lesson (id, description, result_word, class_id, image) values (5, 'lesson5', 'banana', 5, 'http://static.hsw.com.br/gif/how-to-draw-construction-vehicles-57.jpg');
+insert into lesson (id, description, result_word, class_id, image) values (1, 'lesson1', 'Fazenda', 1, 'https://image.freepik.com/vetores-gratis/fazenda-fundo-colorido-dos-desenhos-animados_270-161129.jpg');
 
 create table content (
 	id bigint NOT NULL AUTO_INCREMENT,
@@ -37,12 +30,8 @@ create table content (
 	primary key (id)
 );
 
-insert into content (id, description, result_word, lesson_id, image) values (1, 'content1', 'banana', 1, 'http://static.hsw.com.br/gif/how-to-draw-construction-vehicles-57.jpg');
-insert into content (id, description, result_word, lesson_id, image) values (2, 'content2', 'banana', 2, 'http://static.hsw.com.br/gif/how-to-draw-construction-vehicles-57.jpg');
-insert into content (id, description, result_word, lesson_id, image) values (3, 'content3', 'banana', 3, 'http://static.hsw.com.br/gif/how-to-draw-construction-vehicles-57.jpg');
-insert into content (id, description, result_word, lesson_id, image) values (4, 'content4', 'banana', 4, 'http://static.hsw.com.br/gif/how-to-draw-construction-vehicles-57.jpg');
-insert into content (id, description, result_word, lesson_id, image) values (5, 'content5', 'banana', 5, 'http://static.hsw.com.br/gif/how-to-draw-construction-vehicles-57.jpg');
-
+insert into content (id, description, result_word, lesson_id, image) values (1, 'content1', 'trator', 1, 'http://comercialscardua.com.br/shopping/produtos/50/vs_trator1250_p.jpg');
+insert into content (id, description, result_word, lesson_id, image) values (2, 'content2', 'banana', 1, 'http://www.vacas.info/wp-content/uploads/2013/07/leche_santa_vaca_mundi.jpg');
 
 create table content_word (
 	id bigint NOT NULL AUTO_INCREMENT,
