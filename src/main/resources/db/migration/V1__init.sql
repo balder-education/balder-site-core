@@ -1,3 +1,6 @@
+DROP DATABASE IF EXISTS baldercore;
+CREATE DATABASE IF NOT EXISTS baldercore;
+
 create table user (
 	id bigint NOT NULL AUTO_INCREMENT,
 	username varchar(255), 
